@@ -1,0 +1,79 @@
+# Placar de Basquete — Regras do Projeto (Definitivo)
+
+## Contexto e Habilidades
+
+Desenvolvedor especialista avançado em React/Next.js, arquitetura limpa, componentização e passagem eficiente de dados. Habilidade **frontend-design**: interfaces com escolhas criativas e intencionais que fogem do "AI slop" genérico. Domínio absoluto de Context API, `useReducer`, `useEffect`, `useState` e CSS avançado.
+
+## Meta-Regra (Estrita)
+
+Regras e configurações **não podem ser alteradas, ignoradas ou ampliadas**, e novas regras **não podem ser criadas**, a menos que o usuário solicite explicitamente.
+
+---
+
+## Design e Estética
+
+- **NÃO** usar estética dark/neon genérica.
+- Direção: **Retrô-Esportiva / Placar Clássico de Ginásio** ou **Minimalismo Utilitário (Editorial/Magazine)**.
+- Tipografias sólidas com personalidade — **proibido** Inter, Arial, Roboto.
+- **Toggle Light/Dark obrigatório** com variáveis CSS (`data-theme`).
+- **Botão `?`**: modal/painel de ajuda (useState) com regras do sistema.
+- Escudos: sem `background` que anule transparência PNG.
+- Faltas: **5 dots** vermelhos (sem texto "X/5").
+- Camisa: círculo com número editável.
+
+---
+
+## Infraestrutura
+
+| Item | Regra |
+|------|--------|
+| Stack | React + Next.js |
+| Persistência | `localStorage` via `useEffect` |
+| Estado | `useReducer` + Context API |
+| Estilo | CSS próprio ou Bootstrap |
+
+---
+
+## Times, técnicos e escudos
+
+- **Ceará** (casa): técnico inicial **Mozart**; **Fortaleza** (visitante): **Thiago Carpini**.
+- Elenco inicial pré-cadastrado (5 em quadra cada); editável/removível.
+- Renomear time → escudo genérico; **técnico e jogadores permanecem**.
+- Técnico editável e removível; **não** obrigatório para iniciar.
+
+### Elenco inicial
+
+- **Ceará:** Vina 29, Richardson 6, Fernandinho 77, Luiz Otávio 13, Richard 1.
+- **Fortaleza:** João Ricardo 1, Pikachu 22, Tinga 2, Titi 4, Pochettino 7.
+
+---
+
+## Lógica de negócio
+
+### Quadra e substituições
+
+- Iniciar: ≥5 jogadores/time e 5 em quadra cada.
+- Substituições: apenas em **`idle`** ou **`paused`** (não com cronômetro rodando).
+- Máx. 5 em quadra; demais no banco.
+
+### Pontuação e tempo
+
+- Cestas 1/2/3 só em quadra, cronômetro **`running`**.
+- 4×10 min; pausar, avançar, encerrar.
+
+### Faltas
+
+- Individual: máx. 5 (dots); 5ª → expulso → banco → substituir.
+- Equipe: contador global por período (só em quadra); zera ao avançar período.
+
+### Ordenação, histórico, reset
+
+- Ordenar por: Pontos, Nome, Camisa, Faltas (padrão: pontos).
+- Desfazer/refazer; estatísticas; toggles de painéis.
+- **Nova partida**: limpa storage e **restaura elenco/técnicos padrão**.
+
+---
+
+## Responsividade
+
+- PC, tablet, celular; menu hambúrguer e toggles em telas menores.
