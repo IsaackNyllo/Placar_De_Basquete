@@ -16,3 +16,7 @@ Abra [http://localhost:3000](http://localhost:3000).
 - `npm run dev` — desenvolvimento
 - `npm run build` — build de produção
 - `npm run start` — servidor de produção
+
+---
+
+Desenvolvido por Isaack Nyllo para a disciplina de Desenvolvimento Web (UFC). Organização do repositório com apoio de IA.
